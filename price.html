@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+<head>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='style.css') }}"/>
+</head>
+<body style="background-color:#484848;">
+<table>
+	<thead>
+		<tr>
+			<th>DATE</th>
+			<th>OPEN</th>
+			<th>HIGH</th>
+			<th>LOW</th>
+			<th>CLOSE</th>
+			<th>VOLUME</th>
+		</tr>
+	</thead>
+	<tbody>
+		{% for date, value in result.items() %}
+		<tr>
+			<td> {{ date }} </td>
+			{% for k,v in value.items() %}
+				<td> {{ v }} </td>
+			{% endfor %}
+		</tr>
+		{% endfor %}	
+	</tbody>
+</table>
+</body>
+</html>
